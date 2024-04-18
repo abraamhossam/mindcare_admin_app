@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1032160926808",
+    "project_id": "graduation-d1ee4",
+    "storage_bucket": "graduation-d1ee4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032160926808:android:44dedbb416bc3a594efe2d",
+        "android_client_info": {
+          "package_name": "com.example.mindcare_admin_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvU2eDpZrrJGJjWdEf9GWns0e10Ah7AZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032160926808:android:78b344caeff022704efe2d",
+        "android_client_info": {
+          "package_name": "com.example.mindcare_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvU2eDpZrrJGJjWdEf9GWns0e10Ah7AZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

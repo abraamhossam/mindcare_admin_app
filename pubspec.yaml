@@ -28,6 +28,19 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  get: ^4.6.6
+  firebase_core: ^2.28.0
+  firebase_auth: ^4.19.0
+  responsive_sizer: ^3.3.1
+  flutter_admin_scaffold: ^1.2.0
+  percent_indicator: ^4.2.3
+  cloud_firestore: ^4.16.0
+  firebase_storage: ^11.7.0
+  image_picker: ^1.0.7
+  uuid: ^4.3.3
+  file_picker: ^8.0.0+1
+  
+
   flutter:
     sdk: flutter
 
