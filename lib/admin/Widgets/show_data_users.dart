@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class ShowDataUserWidgets extends StatelessWidget {
@@ -20,10 +20,7 @@ class ShowDataUserWidgets extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(2.0.h),
       child: Container(
-        constraints: BoxConstraints(
-          maxWidth: 90.h,
-          minHeight: 50.h
-        ),
+        constraints: BoxConstraints(maxWidth: 90.h, minHeight: 50.h),
         decoration: BoxDecoration(
           color: const Color(0xFFEEEEEE),
           borderRadius: BorderRadius.circular(12),
@@ -35,7 +32,6 @@ class ShowDataUserWidgets extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    
                     height: 6.h,
                     width: Adaptive.w(3.5),
                     decoration: BoxDecoration(

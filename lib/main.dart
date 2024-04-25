@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mindcare_admin_app/admin/Screens/chatting_admin_view.dart';
+import 'package:mindcare_admin_app/admin/Screens/messages_view.dart';
 import 'package:mindcare_admin_app/firebase_options.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import 'admin/Screens/add_new_doctor.dart';
 import 'admin/Screens/added_by_admin.dart';
 import 'admin/Screens/admin_main.dart';
@@ -23,7 +24,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -51,7 +54,6 @@ class MyApp extends StatelessWidget {
           ),
           GetPage(
             name: DoctorsView.id,
-            // ignore: prefer_const_constructors
             page: () => DoctorsView(),
           ),
           GetPage(
@@ -89,7 +91,15 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: UpdateDataAddedByAdmin.id,
             page: () => UpdateDataAddedByAdmin(),
-          )
+          ),
+          GetPage(
+            name: MessagesView.id,
+            page: () => const MessagesView(),
+          ),
+          GetPage(
+            name: ChattingAdminView.id,
+            page: () => ChattingAdminView(),
+          ),
         ],
         initialRoute: LoginAdminScreen.id,
       );

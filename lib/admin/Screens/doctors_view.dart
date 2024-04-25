@@ -1,9 +1,8 @@
- 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 import '../Widgets/show_data.dart';
 import '../controller/input_data_doctor.dart';
 import '../models/doctor_input_data.dart';

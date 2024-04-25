@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
- 
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 import '../Widgets/container_info.dart';
 import '../Widgets/dropdown_button_years.dart';
 import '../Widgets/text_field_input_data.dart';

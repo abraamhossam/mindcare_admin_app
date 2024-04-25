@@ -1,8 +1,7 @@
- 
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class ShowDataWidgets extends StatelessWidget {

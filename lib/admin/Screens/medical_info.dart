@@ -1,9 +1,8 @@
- 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 import '../Widgets/container_info.dart';
 import '../Widgets/text_field_input_data.dart';
 import '../Widgets/text_input_data.dart';

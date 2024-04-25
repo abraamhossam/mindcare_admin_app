@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constns.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {

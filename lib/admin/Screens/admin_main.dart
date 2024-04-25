@@ -1,7 +1,6 @@
- 
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-
+import 'package:mindcare_admin_app/admin/Screens/messages_view.dart';
 import '../Widgets/app_title.dart';
 import 'add_new_doctor.dart';
 import 'added_by_admin.dart';
@@ -29,7 +28,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
         break;
       case DoctorsView.id:
         setState(() {
-          selectScreen = DoctorsView();
+          selectScreen = const DoctorsView();
         });
         break;
       case PatientsView.id:
@@ -45,6 +44,11 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
       case DoctorsAddedByAdmin.id:
         setState(() {
           selectScreen = const DoctorsAddedByAdmin();
+        });
+        break;
+      case MessagesView.id:
+        setState(() {
+          selectScreen = const MessagesView();
         });
         break;
       default:
@@ -64,28 +68,33 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
           },
           items: const [
             AdminMenuItem(
-              title: " Dashboard",
+              title: "Dashboard",
               icon: Icons.dashboard_customize,
               route: DashboardView.id,
             ),
             AdminMenuItem(
-              title: " Doctors",
+              title: "Doctors",
               icon: Icons.group,
               route: DoctorsView.id,
             ),
             AdminMenuItem(
-              title: " Users",
+              title: "Users",
               icon: Icons.group,
               route: PatientsView.id,
             ),
             AdminMenuItem(
-                title: " Add New Doctor",
+                title: "Add New Doctor",
                 icon: Icons.person_add_alt_1,
                 route: AddNewDoctorView.id),
             AdminMenuItem(
-              title: " Doctors Added By Admin ",
+              title: "Doctors Added By Admin",
               icon: Icons.group,
               route: DoctorsAddedByAdmin.id,
+            ),
+            AdminMenuItem(
+              title: "Messages",
+              icon: Icons.chat,
+              route: MessagesView.id,
             ),
           ],
           selectedRoute: AdminMainScreen.id,
