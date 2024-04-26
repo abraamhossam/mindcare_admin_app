@@ -43,7 +43,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
         break;
       case DoctorsAddedByAdmin.id:
         setState(() {
-          selectScreen = const DoctorsAddedByAdmin();
+          selectScreen =   DoctorsAddedByAdmin();
         });
         break;
       case MessagesView.id:

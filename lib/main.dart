@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
           ),
           GetPage(
             name: DoctorsAddedByAdmin.id,
-            page: () => const DoctorsAddedByAdmin(),
+            page: () =>   DoctorsAddedByAdmin(),
           ),
           GetPage(
             name: UpdateDataAddedByAdmin.id,

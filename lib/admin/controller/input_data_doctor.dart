@@ -4,12 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models/doctor_input_data.dart';
-
- 
 
 class DoctorInputData extends GetxController {
   var uuid = const Uuid();
@@ -40,6 +39,8 @@ class DoctorInputData extends GetxController {
   DoctorsData? senddata;
   final User? user = FirebaseAuth.instance.currentUser;
 
+  final TextEditingController searchController = TextEditingController();
+
   List<String> itemsgender = ["male", "female"];
   List<String> itemsyears = [
     for (dynamic i = 1950; i <= DateTime.now().year; i++) "$i"
@@ -48,12 +49,47 @@ class DoctorInputData extends GetxController {
   String? selectitemsgender;
   dynamic selectitemyear;
 
+  List<QueryDocumentSnapshot> doctorsData = [];
+  List<QueryDocumentSnapshot> usersData = [];
+  List<QueryDocumentSnapshot> doctorsDataAdmin = [];
+  bool isloding = true;
+  List resultSearch = [];
   @override
   void onInit() {
     getdata();
     datadoctorsaddedbyadmin();
     getdataUsers();
+    searchController.addListener(onSearchchanged);
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    searchController.removeListener(onSearchchanged);
+    searchController.dispose();
+    super.onClose();
+  }
+
+  onSearchchanged() {
+    // ignore: avoid_print
+    print(searchController.text);
+    searchReasultList();
+  }
+
+  searchReasultList() {
+    var ShowResultData = [];
+    if (searchController.text != "") {
+      for (var clientSnapShot in doctorsDataAdmin) {
+        var name = clientSnapShot['name'].toString().toLowerCase();
+        if (name.contains(searchController.text.toLowerCase())) {
+          ShowResultData.add(clientSnapShot);
+        }
+      }
+    } else {
+      ShowResultData = List.from(doctorsDataAdmin);
+    }
+    resultSearch = ShowResultData;
+    update();
   }
 
   void onChangedDropDown(value) {
@@ -66,11 +102,6 @@ class DoctorInputData extends GetxController {
     update();
   }
 
-  List<QueryDocumentSnapshot> doctorsData = [];
-  List<QueryDocumentSnapshot> usersData = [];
-  List<QueryDocumentSnapshot> doctorsDataAdmin = [];
-  bool isloding = true;
-// get doctors data:
   getdata() async {
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('doctors_data').get();
@@ -89,9 +120,11 @@ class DoctorInputData extends GetxController {
 
     doctorsDataAdmin.addAll(querySnapshot.docs);
     isloding = false;
+    
 
     update();
     // print(doctorsDataAdmin);
+    searchReasultList();
   }
 
   // get users data:
