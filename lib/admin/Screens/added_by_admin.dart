@@ -57,7 +57,7 @@ class DoctorsAddedByAdmin extends StatelessWidget {
                                       controller.deletedoctorAddedbyAdmin(
                                         controller.doctorsDataAdmin[index].id,
                                       );
-                                      Get.toNamed(AdminMainScreen.id);
+                                      Get.offAllNamed(AdminMainScreen.id);
                                     },
                                     child: const Text(
                                       'Delete',

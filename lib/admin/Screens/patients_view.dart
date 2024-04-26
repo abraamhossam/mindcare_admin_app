@@ -32,8 +32,8 @@ class PatientsView extends StatelessWidget {
                     return InkWell(
                       onTap: () {},
                       child: ShowDataUserWidgets(
-                        image: controller.usersData[index]['pic'],
-                        name: controller.usersData[index]['full_name'],
+                        image: controller.usersData[index]['image'],
+                        name: controller.usersData[index]['name'],
                         email: controller.usersData[index]['email'],
                       ),
                     );
