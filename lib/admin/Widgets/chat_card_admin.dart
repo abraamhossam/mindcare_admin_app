@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mindcare_admin_app/admin/Screens/chatting_admin_view.dart';
 import 'package:mindcare_admin_app/admin/helpers/size_config.dart';
+import 'package:mindcare_admin_app/admin/models/message_model.dart';
 import 'package:mindcare_admin_app/admin/models/room_model.dart';
 import 'package:mindcare_admin_app/constants.dart';
 
@@ -76,6 +79,41 @@ class ChatCardAdmin extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              const Spacer(
+                flex: 1,
+              ),
+              StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("adminRooms")
+                    .doc(model.id.toString())
+                    .collection("messages")
+                    .snapshots(),
+                builder: ((context, snapshot) {
+                  final unReadList = snapshot.data?.docs
+                      .map((e) => MessageModel.fromjson(e.data()))
+                      .where((element) => element.read == "")
+                      .where((element) =>
+                          element.fromId !=
+                          FirebaseAuth.instance.currentUser!.uid);
+
+                  return (unReadList == null)
+                      ? const Text("")
+                      : unReadList.isEmpty
+                          ? const Text("")
+                          : Badge(
+                              backgroundColor: Colors.green,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
+                              label: Text(
+                                unReadList.length.toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              largeSize: 30,
+                            );
+                }),
               ),
             ],
           ),
