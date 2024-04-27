@@ -108,14 +108,19 @@ class _LoginAdminScreenState extends State<LoginAdminScreen> {
                                       )
                                       .get();
                               try {
-                                await FirebaseAuth.instance
-                                    .signInWithEmailAndPassword(
-                                        email: emailcontroller.text.trim(),
-                                        password:
-                                            passwordcontroller.text.trim());
-                                snackbar(context, 'Success');
-                                print("done");
-                                Get.offAllNamed(AdminMainScreen.id);
+                                if (reciever.docs.first['type'] == "Admin") {
+                                  await FirebaseAuth.instance
+                                      .signInWithEmailAndPassword(
+                                          email: emailcontroller.text.trim(),
+                                          password:
+                                              passwordcontroller.text.trim());
+                                  snackbar(context, 'Success');
+                                  print("done");
+                                  Get.offAllNamed(AdminMainScreen.id);
+                                } else {
+                                  snackbar(context,
+                                      'The email or Password is incorrect');
+                                }
                               } catch (e) {
                                 snackbar(context,
                                     'The email or Password is incorrect');
