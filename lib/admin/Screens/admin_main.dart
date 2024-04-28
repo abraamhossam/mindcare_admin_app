@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+import 'package:get/get.dart';
+import 'package:mindcare_admin_app/admin/Screens/login.dart';
 import 'package:mindcare_admin_app/admin/Screens/messages_view.dart';
 import '../Widgets/app_title.dart';
 import 'add_new_doctor.dart';
@@ -51,6 +54,54 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
           selectScreen = const MessagesView();
         });
         break;
+      case "log_out":
+        setState(() {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  contentTextStyle: const TextStyle(
+                      height: 1.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                  backgroundColor: const Color(0xff607D8B),
+                  content: const Text(
+                    "Are you sure to logout ? ",
+                  ),
+                  actions: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.blue)),
+                      child: const Text(
+                        "Ok",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () async {
+                        await FirebaseAuth.instance.signOut();
+                        Get.offAllNamed(LoginAdminScreen.id);
+                      },
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.blue)),
+                      child: const Text(
+                        "Cancel",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                  ],
+                );
+              });
+        });
+        break;
       default:
     }
   }
@@ -95,6 +146,11 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
               title: "Messages",
               icon: Icons.chat,
               route: MessagesView.id,
+            ),
+            AdminMenuItem(
+              title: "logout",
+              icon: Icons.logout,
+              route: "log_out",
             ),
           ],
           selectedRoute: AdminMainScreen.id,

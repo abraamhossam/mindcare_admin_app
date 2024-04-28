@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mindcare_admin_app/admin/models/message_model.dart';
 import 'package:mindcare_admin_app/admin/widgets/chat_bubble.dart';
@@ -182,7 +181,7 @@ class ChattingAdminView extends StatelessWidget {
                                           );
                                         },
                                         icon: const Icon(
-                                          Iconsax.emoji_happy,
+                                          Icons.photo_library,
                                           color: Colors.black,
                                         ),
                                       ),
@@ -209,7 +208,7 @@ class ChattingAdminView extends StatelessWidget {
                                           );
                                         },
                                         icon: const Icon(
-                                          Iconsax.camera,
+                                          Icons.photo_camera,
                                           color: Colors.black,
                                         ),
                                       ),
@@ -281,7 +280,7 @@ class ChattingAdminView extends StatelessWidget {
                                 );
                               },
                               icon: const Icon(
-                                Iconsax.send1,
+                                Icons.send,
                                 color: Colors.white,
                               ),
                             ),
