@@ -40,6 +40,8 @@ class DoctorInputData extends GetxController {
   final User? user = FirebaseAuth.instance.currentUser;
 
   final TextEditingController searchController = TextEditingController();
+  final TextEditingController searchControllerDoctordata =
+      TextEditingController();
 
   List<String> itemsgender = ["male", "female"];
   List<String> itemsyears = [
@@ -54,12 +56,14 @@ class DoctorInputData extends GetxController {
   List<QueryDocumentSnapshot> doctorsDataAdmin = [];
   bool isloding = true;
   List resultSearch = [];
+  List resultSearchdoctor = [];
   @override
   void onInit() {
     getdata();
     datadoctorsaddedbyadmin();
     getdataUsers();
     searchController.addListener(onSearchchanged);
+    searchControllerDoctordata.addListener(onSearchchangedDoctordata);
     super.onInit();
   }
 
@@ -67,6 +71,8 @@ class DoctorInputData extends GetxController {
   void onClose() {
     searchController.removeListener(onSearchchanged);
     searchController.dispose();
+    searchControllerDoctordata.removeListener(onSearchchangedDoctordata);
+    searchControllerDoctordata.dispose();
     super.onClose();
   }
 
@@ -74,6 +80,12 @@ class DoctorInputData extends GetxController {
     // ignore: avoid_print
     print(searchController.text);
     searchReasultList();
+  }
+
+  onSearchchangedDoctordata() {
+    // ignore: avoid_print
+    print(searchControllerDoctordata.text);
+    searchReasultListDoctor();
   }
 
   searchReasultList() {
@@ -92,6 +104,25 @@ class DoctorInputData extends GetxController {
     update();
   }
 
+  // doctor search
+  searchReasultListDoctor() {
+    var ShowResult = [];
+    if (searchControllerDoctordata.text != "") {
+      for (var doctorSnapShot in doctorsData) {
+        var namedoctor = doctorSnapShot['name'].toString().toLowerCase();
+        if (namedoctor
+            .contains(searchControllerDoctordata.text.toLowerCase())) {
+          ShowResult.add(doctorSnapShot);
+        }
+      }
+    } else {
+      ShowResult = List.from(doctorsData);
+    }
+    resultSearchdoctor = ShowResult;
+    update();
+  }
+  //
+
   void onChangedDropDown(value) {
     value = selectitemsgender;
     update();
@@ -108,6 +139,7 @@ class DoctorInputData extends GetxController {
     doctorsData.addAll(querySnapshot.docs);
     isloding = false;
     update();
+    searchReasultListDoctor();
 
     // print(doctorsData);
   }
@@ -120,10 +152,8 @@ class DoctorInputData extends GetxController {
 
     doctorsDataAdmin.addAll(querySnapshot.docs);
     isloding = false;
-    
 
     update();
-    // print(doctorsDataAdmin);
     searchReasultList();
   }
 
