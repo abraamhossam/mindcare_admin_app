@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
- 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -190,7 +189,10 @@ class _UpdateDataAddedByAdminState extends State<UpdateDataAddedByAdmin> {
                             shape: BoxShape.circle,
                             image: DecorationImage(
                               image: NetworkImage(
-                                widget.senddataAddedByAdmin!.urlImage,
+                                // widget.senddataAddedByAdmin!.urlImage,
+                                imageUrl == null
+                                    ? widget.senddataAddedByAdmin!.urlImage
+                                    : imageUrl!,
                               ),
                             ),
                           ),
