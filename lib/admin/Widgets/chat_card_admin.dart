@@ -23,13 +23,7 @@ class ChatCardAdmin extends StatelessWidget {
       onTap: () {
         Get.toNamed(
           ChattingAdminView.id,
-          arguments: [
-            model.members,
-            model.members![0],
-            model.from,
-            model.fromType,
-            "Admin",
-          ],
+          arguments: model,
         );
       },
       child: Padding(

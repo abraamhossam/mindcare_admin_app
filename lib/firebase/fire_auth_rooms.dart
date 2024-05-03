@@ -78,33 +78,21 @@ class FireAuthRooms {
       'last_message_time': DateTime.now().millisecondsSinceEpoch.toString(),
     });
     firestore.collection('adminRooms').doc(roomId).update({
-      'read': "1",
+      'read': "2",
     });
   }
 
-  static Future readMessage({
+  static Future readMessageAdmin({
     required String roomId,
     required String msgId,
-    required String type,
   }) async {
-    if (type == 'admin') {
-      await firestore
-          .collection('adminRooms')
-          .doc(roomId)
-          .collection("messages")
-          .doc(msgId)
-          .update({
-        'read': DateTime.now().microsecondsSinceEpoch.toString(),
-      });
-    } else {
-      await firestore
-          .collection('rooms')
-          .doc(roomId)
-          .collection("messages")
-          .doc(msgId)
-          .update({
-        'read': DateTime.now().microsecondsSinceEpoch.toString(),
-      });
-    }
+    await firestore
+        .collection('adminRooms')
+        .doc(roomId)
+        .collection("messages")
+        .doc(msgId)
+        .update({
+      'read': DateTime.now().microsecondsSinceEpoch.toString(),
+    });
   }
 }
