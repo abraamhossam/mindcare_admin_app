@@ -4,6 +4,7 @@ import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:get/get.dart';
 import 'package:mindcare_admin_app/admin/Screens/login.dart';
 import 'package:mindcare_admin_app/admin/Screens/messages_view.dart';
+import 'package:mindcare_admin_app/admin/controller/get_details_controller.dart';
 import '../Widgets/app_title.dart';
 import 'add_new_doctor.dart';
 import 'added_by_admin.dart';
@@ -20,6 +21,12 @@ class AdminMainScreen extends StatefulWidget {
 }
 
 class _AdminMainScreenState extends State<AdminMainScreen> {
+  @override
+  void initState() {
+    GetDetailscontroller().getDetails();
+    super.initState();
+  }
+
   Widget selectScreen = const DashboardView();
 
   chosseScreens(item) {
