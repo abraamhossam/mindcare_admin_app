@@ -10,6 +10,7 @@ import 'add_new_doctor.dart';
 import 'added_by_admin.dart';
 import 'dashboard_view.dart';
 import 'doctors_view.dart';
+import 'edit_password.dart';
 import 'patients_view.dart';
 
 class AdminMainScreen extends StatefulWidget {
@@ -59,6 +60,11 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
       case MessagesView.id:
         setState(() {
           selectScreen = const MessagesView();
+        });
+        break;
+        case EditPassword.id:
+        setState(() {
+          selectScreen = const EditPassword();
         });
         break;
       case "log_out":
@@ -153,6 +159,11 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
               title: "Messages",
               icon: Icons.chat,
               route: MessagesView.id,
+            ),
+              AdminMenuItem(
+              title: "Change Password",
+              icon: Icons.edit,
+              route: EditPassword.id,
             ),
             AdminMenuItem(
               title: "logout",

@@ -11,6 +11,7 @@ import 'admin/Screens/admin_main.dart';
 import 'admin/Screens/dashboard_view.dart';
 import 'admin/Screens/doctors_view.dart';
 import 'admin/Screens/edication.dart';
+import 'admin/Screens/edit_password.dart';
 import 'admin/Screens/login.dart';
 import 'admin/Screens/medical_info.dart';
 import 'admin/Screens/patients_view.dart';
@@ -99,6 +100,10 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: ChattingAdminView.id,
             page: () => ChattingAdminView(),
+          ),
+             GetPage(
+            name: EditPassword.id,
+            page: () => const EditPassword(),
           ),
         ],
         initialRoute: LoginAdminScreen.id,

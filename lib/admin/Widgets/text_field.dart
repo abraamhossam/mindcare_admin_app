@@ -39,16 +39,22 @@ class CustomTextField extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        prefixIcon: Icon(
-          preIcon,
-          size: 28,
-          // color: Colors.blue,
-        ),
-        suffixIcon: IconButton(
-          onPressed: ontapSufIcon,
-          icon: Icon(
-            sufIcon,
+        prefixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(
+            preIcon,
             size: 28,
+            // color: Colors.blue,
+          ),
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            onPressed: ontapSufIcon,
+            icon: Icon(
+              sufIcon,
+              size: 28,
+            ),
           ),
         ),
         hintText: hinttext,
