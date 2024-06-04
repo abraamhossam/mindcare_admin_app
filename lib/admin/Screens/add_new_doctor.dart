@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../Widgets/appbar_widget.dart';
 import '../Widgets/container_info.dart';
 import '../Widgets/dropdown_button.dart';
 import '../Widgets/image_info.dart';
-import '../Widgets/phone_text_feild.dart';
 import '../Widgets/text_field_input_data.dart';
 import '../Widgets/text_input_data.dart';
 import '../controller/input_data_doctor.dart';
@@ -110,24 +110,36 @@ class AddNewDoctorView extends StatelessWidget {
                         labelText: "Medical Specialty",
                       ),
                       const SizedBox(
-                        height: 1,
+                        height: 3,
                       ),
-                      Material(
-                        child: PhoneTextField(
-                          onChanged: (data) {
-                            controller.phone = data;
-                          },
-                          
-                          maxLength: 11,
-                          controller: mobile,
-                          validator: (data) {
-                            if (mobile.text.length != 11) {
-                              return "Please Enter valid mobile number";
-                            }
-                          },
-                          labelText: "Phone number",
-                          inputType: TextInputType.phone,
+                      // Material(
+                      //   child: PhoneTextField(
+                      //     onChanged: (data) {
+                      //       controller.phone = data;
+                      //     },
+                      //     maxLength: 11,
+                      //     controller: mobile,
+                      //     validator: (data) {
+                      //       if (mobile.text.length != 11) {
+                      //         return "Please Enter valid mobile number";
+                      //       }
+                      //     },
+                      //     labelText: "Phone number",
+                      //     inputType: TextInputType.phone,
+                      //   ),
+                      // ),
+                      IntlPhoneField(
+                        decoration: InputDecoration(
+                          labelText: 'Phone Number',
+                          labelStyle: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.grey,
+                          ),
                         ),
+                        initialCountryCode: 'EG',
+                        onChanged: (data) {
+                          controller.phone = data.toString();
+                        },
                       ),
                       const SizedBox(
                         height: 1,
