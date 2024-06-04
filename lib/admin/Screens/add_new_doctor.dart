@@ -117,6 +117,7 @@ class AddNewDoctorView extends StatelessWidget {
                           onChanged: (data) {
                             controller.phone = data;
                           },
+                          
                           maxLength: 11,
                           controller: mobile,
                           validator: (data) {
