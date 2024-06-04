@@ -58,7 +58,7 @@ class _nameState extends State<EditPassword> {
           backgroundColor: Colors.white,
           contentPadding: EdgeInsets.zero,
           content: SizedBox(
-            height: 40.h,
+            height: 45.h,
             width: 90.h,
             child: Column(children: [
               Padding(
