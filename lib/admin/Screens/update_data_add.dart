@@ -126,7 +126,7 @@ class _UpdateDataAddedByAdminState extends State<UpdateDataAddedByAdmin> {
   @override
   void initState() {
     name.text = widget.senddataAddedByAdmin!.name;
-    controllersurname.text = widget.senddataAddedByAdmin!.surname;
+    // controllersurname.text = widget.senddataAddedByAdmin!.surname;
     controllerbirth.text = widget.senddataAddedByAdmin!.birth;
     controllermedicalTitle.text = widget.senddataAddedByAdmin!.medicalTitle;
     mobile.text = widget.senddataAddedByAdmin!.phone;
@@ -234,15 +234,7 @@ class _UpdateDataAddedByAdminState extends State<UpdateDataAddedByAdmin> {
                     },
                     labelText: "Name",
                   ),
-                  TextFiledData(
-                    myconroller: controllersurname,
-                    validator: (data) {
-                      if (data!.isEmpty) {
-                        return "field is required";
-                      }
-                    },
-                    labelText: "Surname",
-                  ),
+                  
                   const SizedBox(
                     height: 3,
                   ),
@@ -824,7 +816,7 @@ class _UpdateDataAddedByAdminState extends State<UpdateDataAddedByAdmin> {
                           DoctorsData(
                             id: widget.idDoc,
                             name: name.text,
-                            surname: controllersurname.text,
+                            // surname: controllersurname.text,
                             gender: selectitemsgender!,
                             birth: controllerbirth.text,
                             medicalTitle: controllermedicalTitle.text,

@@ -92,9 +92,9 @@ class DoctorsAddedByAdmin extends StatelessWidget {
                                                 name: controller
                                                         .doctorsDataAdmin[index]
                                                     ['name'],
-                                                surname: controller
-                                                        .doctorsDataAdmin[index]
-                                                    ['surname'],
+                                                // surname: controller
+                                                //         .doctorsDataAdmin[index]
+                                                //     ['surname'],
                                                 gender: controller
                                                         .doctorsDataAdmin[index]
                                                     ['gender'],

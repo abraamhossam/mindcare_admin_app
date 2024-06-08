@@ -63,17 +63,7 @@ class AddNewDoctorView extends StatelessWidget {
                         },
                         labelText: "Name",
                       ),
-                      TextFiledData(
-                        onChanged: (data) {
-                          controller.surname = data;
-                        },
-                        validator: (data) {
-                          if (data!.isEmpty) {
-                            return "field is required";
-                          }
-                        },
-                        labelText: "Surname",
-                      ),
+
                       const SizedBox(
                         height: 6,
                       ),

@@ -24,12 +24,12 @@ class DoctorsView extends StatelessWidget {
       init: DoctorInputData(),
       builder: (controller) {
         return Scaffold(
-          appBar: AppBar(
+            appBar: AppBar(
               title: CupertinoSearchTextField(
                 controller: controller.searchControllerDoctordata,
                 padding: const EdgeInsets.all(10.0),
               ),
-          ),
+            ),
             body: controller.isloding == true
                 ? const Center(
                     child: CircularProgressIndicator(
@@ -39,9 +39,9 @@ class DoctorsView extends StatelessWidget {
                 : GridView.builder(
                     itemCount: controller.resultSearchdoctor.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 20.h,
-                      crossAxisCount: 6,
-                      crossAxisSpacing: 4,
+                      mainAxisExtent: 19.h,
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 15,
                     ),
                     itemBuilder: (context, index) {
                       return InkWell(
@@ -92,8 +92,8 @@ class DoctorsView extends StatelessWidget {
                                                 ['id'],
                                             name: controller.doctorsData[index]
                                                 ['name'],
-                                            surname: controller
-                                                .doctorsData[index]['surname'],
+                                            // surname: controller
+                                            //     .doctorsData[index]['surname'],
                                             gender: controller
                                                 .doctorsData[index]['gender'],
                                             birth: controller.doctorsData[index]
@@ -163,7 +163,8 @@ class DoctorsView extends StatelessWidget {
                           );
                         },
                         child: ShowDataWidgets(
-                          image: controller.resultSearchdoctor[index]['urlImage'],
+                          image: controller.resultSearchdoctor[index]
+                              ['urlImage'],
                           name: controller.resultSearchdoctor[index]['name'],
                           address: controller.resultSearchdoctor[index]
                               ['officeAddress'],

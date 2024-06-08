@@ -1,7 +1,7 @@
 class DoctorsData {
   final String? id;
   final String name;
-  final String surname;
+  // final String surname;
   final String gender;
   final String birth;
   final String medicalTitle;
@@ -26,7 +26,7 @@ class DoctorsData {
   DoctorsData({
     this.id,
     required this.name,
-    required this.surname,
+    // required this.surname,
     required this.gender,
     required this.birth,
     required this.medicalTitle,
@@ -52,7 +52,7 @@ class DoctorsData {
     return {
       'id': id,
       'name': name,
-      'surname': surname,
+      // 'surname': surname,
       'gender': gender,
       'birth': birth,
       'medicalTitle': medicalTitle,

@@ -127,7 +127,7 @@ class _UpdeteDataState extends State<UpdeteData> {
   @override
   void initState() {
     name.text = widget.senddata!.name;
-    controllersurname.text = widget.senddata!.surname;
+    // controllersurname.text = widget.senddata!.surname;
     controllerbirth.text = widget.senddata!.birth;
     controllermedicalTitle.text = widget.senddata!.medicalTitle;
     mobile.text = widget.senddata!.phone;
@@ -234,18 +234,18 @@ class _UpdeteDataState extends State<UpdeteData> {
                     },
                     labelText: "Name",
                   ),
-                  TextFiledData(
-                    myconroller: controllersurname,
-                    validator: (data) {
-                      if (data!.isEmpty) {
-                        return "field is required";
-                      }
-                    },
-                    labelText: "Surname",
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
+                  // TextFiledData(
+                  //   myconroller: controllersurname,
+                  //   validator: (data) {
+                  //     if (data!.isEmpty) {
+                  //       return "field is required";
+                  //     }
+                  //   },
+                  //   labelText: "Surname",
+                  // ),
+                  // const SizedBox(
+                  //   height: 3,
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -824,7 +824,7 @@ class _UpdeteDataState extends State<UpdeteData> {
                           DoctorsData(
                             id: widget.idDoc,
                             name: name.text,
-                            surname: controllersurname.text,
+                            // surname: controllersurname.text,
                             gender: selectitemsgender!,
                             birth: controllerbirth.text,
                             medicalTitle: controllermedicalTitle.text,

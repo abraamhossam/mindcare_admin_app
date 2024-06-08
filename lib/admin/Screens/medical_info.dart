@@ -175,7 +175,7 @@ class MedicalInfo extends StatelessWidget {
                               DoctorsData(
                                 id: controller.user!.uid,
                                 name: controller.name,
-                                surname: controller.surname,
+                                // surname: controller.surname,
                                 gender: controller.selectitemsgender.toString(),
                                 birth: controller.birth,
                                 medicalTitle: controller.medicalTitle,
