@@ -67,6 +67,9 @@ class DoctorsView extends StatelessWidget {
                                     onPressed: () {
                                       controller.deletedoctor(
                                           controller.doctorsData[index]['id']);
+                                      controller.deleteLogindoctor(
+                                        controller.loginData[index]["id"]
+                                      );
                                       Get.offAllNamed(AdminMainScreen.id);
                                     },
                                     child: const Text(

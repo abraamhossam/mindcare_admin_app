@@ -54,11 +54,14 @@ class DoctorInputData extends GetxController {
   List<QueryDocumentSnapshot> doctorsData = [];
   List<QueryDocumentSnapshot> usersData = [];
   List<QueryDocumentSnapshot> doctorsDataAdmin = [];
+  List<QueryDocumentSnapshot> loginData = [];
+
   bool isloding = true;
   List resultSearch = [];
   List resultSearchdoctor = [];
   @override
   void onInit() {
+    getlogindata();
     getdata();
     datadoctorsaddedbyadmin();
     getdataUsers();
@@ -144,6 +147,14 @@ class DoctorInputData extends GetxController {
     // print(doctorsData);
   }
 
+  getlogindata() async {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('doctors').get();
+    loginData.addAll(querySnapshot.docs);
+    isloding = false;
+    update();
+  }
+
   // get doctors data add by admin:
   datadoctorsaddedbyadmin() async {
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
@@ -212,6 +223,12 @@ class DoctorInputData extends GetxController {
     // update();
   }
 
+  Future<void> deleteLogindoctor(String docid) async {
+    CollectionReference db = FirebaseFirestore.instance.collection('doctors');
+    await db.doc(docid).delete();
+    // update();
+  }
+
   Future<void> deletedoctorAddedbyAdmin(String docid) async {
     CollectionReference db =
         FirebaseFirestore.instance.collection('doctors_data_added_by_admin');
@@ -244,7 +261,6 @@ class DoctorInputData extends GetxController {
         },
       );
     }
-
     update();
   }
 }

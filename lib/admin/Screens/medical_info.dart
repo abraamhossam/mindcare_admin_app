@@ -195,8 +195,9 @@ class MedicalInfo extends StatelessWidget {
                                 specialisty: controller.specialisty,
                                 expiryBoard: controller.expiryBoard,
                                 expiryCurrent: controller.expiryCurrent,
-                                urlImage: controller.imageUrl!,
-                              ),
+                                urlImage:
+                                    "https://st3.depositphotos.com/1767687/17621/v/450/depositphotos_176214104-stock-illustration-default-avatar-profile-icon.jpg",
+                                    ),
                             );
                             snackbar(context, ' ADDED SUCCESSFULLY ! ');
                             Get.offAllNamed(AdminMainScreen.id);
@@ -208,7 +209,7 @@ class MedicalInfo extends StatelessWidget {
                     )
                   ],
                 );
-              },
+              }
             ),
           ),
         ),
